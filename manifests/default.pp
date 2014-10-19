@@ -1,10 +1,10 @@
 exec { "couchbase-server-source": 
 
-  command => "/usr/bin/wget http://packages.couchbase.com/releases/2.0.1/couchbase-server-enterprise_x86_64_2.0.1.deb",
+  command => "/usr/bin/wget http://packages.couchbase.com/releases/3.0.0/couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb",
 
   cwd => "/home/vagrant/",
 
-  creates => "/home/vagrant/couchbase-server-enterprise_x86_64_2.0.1.deb",
+  creates => "/home/vagrant/couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb",
 
   before => Package['couchbase-server']
 
@@ -26,6 +26,6 @@ package { "couchbase-server":
 
   ensure => installed,
 
-  source => "/home/vagrant/couchbase-server-enterprise_x86_64_2.0.1.deb"
+  source => "/home/vagrant/couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb"
 
 }

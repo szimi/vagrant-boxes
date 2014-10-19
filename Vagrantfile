@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   # Number of nodes to provision
 
-  numNodes = 2
+  numNodes = 1
 
 
   # IP Address Base for private network
