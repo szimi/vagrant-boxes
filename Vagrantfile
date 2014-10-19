@@ -1,11 +1,5 @@
 Vagrant.configure("2") do |config|
 
-
-  # Number of nodes to provision
-
-  numNodes = 1
-
-
   # IP Address Base for private network
 
   ipAddrPrefix = "192.168.56.10"
@@ -31,26 +25,18 @@ Vagrant.configure("2") do |config|
 
 
   # Provision Config for each of the nodes
+  config.vm.define "Couchbase" do |node|
 
-  1.upto(numNodes) do |num|
+    node.vm.box = "precise64"
 
-    nodeName = ("node" + num.to_s).to_sym
+    node.vm.network :private_network, ip: ipAddrPrefix
 
-    config.vm.define nodeName do |node|
+    node.vm.provider "virtualbox" do |v|
 
-      node.vm.box = "precise64"
-
-      node.vm.network :private_network, ip: ipAddrPrefix + num.to_s
-
-      node.vm.provider "virtualbox" do |v|
-
-      v.name = "Couchbase Server Node " + num.to_s
-
-    end
+    v.name = "Couchbase Server Node "
 
   end
 
 end
-
 
 end
